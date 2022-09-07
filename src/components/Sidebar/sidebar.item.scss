@@ -1,0 +1,23 @@
+.tt-sidebar-item {
+  height: 30px;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  flex-direction: row;
+
+  .item-icon {
+  }
+
+  .item-name {
+  }
+
+  &--selected {
+    background: #e2e3e9;
+  }
+  &:hover {
+    background: #e2e3e9;
+  }
+}
