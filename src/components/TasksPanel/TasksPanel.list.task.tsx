@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { observer } from "mobx-react-lite";
 import { TaskModelType } from "../../models/TasksStore";
 import classNames from "classnames";
@@ -6,9 +6,10 @@ import classNames from "classnames";
 import "./TasksPanel.list.task.scss";
 import { useForm, Controller } from "react-hook-form";
 import { getSnapshot } from "mobx-state-tree";
-import { Button, DatePicker, Select, Checkbox } from "antd";
+import { Button, Select, Checkbox } from "antd";
 import { DeleteOutlined } from "@ant-design/icons";
 import { useStore } from "../../hooks/useStore";
+import DatePicker from "../lib/DatePicker";
 
 type TasksPanelListTaskProps = { task: TaskModelType };
 
@@ -90,7 +91,17 @@ const TasksPanelListTask: React.FC<TasksPanelListTaskProps> = observer(
             />
           </div>
           <div>
-            <DatePicker bordered={false} showToday={false} />
+            <Controller
+              name={"date"}
+              control={control}
+              render={({ field: { onChange, value } }) => (
+                <DatePicker
+                  onChange={onChange}
+                  onSelect={submit}
+                  value={value}
+                />
+              )}
+            />
             <Button
               onClick={task.remove}
               type={"text"}

@@ -1,0 +1,35 @@
+.tt-datepicker {
+  background: rgb(50, 55, 64);
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  color: rgb(97, 104, 112);
+  padding-top: 4px;
+  padding-bottom: 8px;
+
+  .ant-picker-header {
+    border: none;
+  }
+
+  .ant-picker-cell:hover:not(.ant-picker-cell-in-view) .ant-picker-cell-inner,
+  .ant-picker-cell:hover:not(.ant-picker-cell-selected):not(.ant-picker-cell-range-start):not(.ant-picker-cell-range-end):not(.ant-picker-cell-range-hover-start):not(.ant-picker-cell-range-hover-end)
+  .ant-picker-cell-inner {
+    background: rgb(79, 86, 100);
+  }
+
+  .ant-picker-cell-end {
+    color: brown !important;
+  }
+
+  * {
+    color: white !important;
+    border: none !important;
+  }
+
+  .title {
+    display: flex;
+    justify-content: center;
+  }
+}

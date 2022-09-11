@@ -16,6 +16,7 @@ export const Task = types
     title: types.maybeNull(types.string),
     checked: types.optional(types.boolean, false),
     list_id: types.number,
+    date: types.maybeNull(types.string),
   })
   .views((self) => ({
     get is_selected(): boolean {
@@ -32,6 +33,7 @@ export const Task = types
       self.title = task.title || null;
       self.checked = task.checked || false;
       self.list_id = task.list_id || self.list_id;
+      self.date = task.date || null;
     };
 
     const select = () => {
