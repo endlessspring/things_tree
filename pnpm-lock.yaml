@@ -13,6 +13,7 @@ specifiers:
   mobx: ^6.6.1
   mobx-react-lite: ^3.4.0
   mobx-state-tree: ^5.1.6
+  moment: ^2.29.4
   prettier: ^2.7.1
   react: ^18.2.0
   react-dom: ^18.2.0
@@ -30,6 +31,7 @@ dependencies:
   mobx: 6.6.1
   mobx-react-lite: 3.4.0_m26jawr67gnusmh4egzqtnhxru
   mobx-state-tree: 5.1.6_mobx@6.6.1
+  moment: 2.29.4
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-hook-form: 7.34.2_react@18.2.0
