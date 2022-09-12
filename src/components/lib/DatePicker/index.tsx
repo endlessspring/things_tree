@@ -37,7 +37,11 @@ const DatePicker: React.FC<Props> = props => {
             suffixIcon={false}
             superNextIcon={false}
             superPrevIcon={false}
-            inputRender={e => <div {...e}>{e.title || 'Введите дату'}</div>}
+            inputRender={e => (
+                <div {...e} className="tt-datepicker-button">
+                    <Button onClick={e.onClick} type={'text'} icon={icons[IconsEnum.CALENDAR]} />
+                </div>
+            )}
             renderExtraFooter={() => (
                 <div>
                     <Button ghost icon={icons[IconsEnum.STAR]} color={'black'} onClick={handleTodayClick}>

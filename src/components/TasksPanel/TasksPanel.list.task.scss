@@ -1,12 +1,11 @@
 .tt-task_list-task {
-  padding: 20px 15px 15px 15px;
+  padding: 20px 15px 5px 15px;
   width: 100%;
   display: flex;
   flex-direction: column;
   border-radius: 7px;
   font-size: 16px;
   transition: 0.3s;
-  height: 30px;
   overflow: hidden;
 
   input {
@@ -25,9 +24,17 @@
     }
   }
 
+  .task-content {
+    height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
   .task-body {
-    height: 100%;
     padding: 5px 5px 5px 20px;
+    height: 100%;
 
     textarea {
       border: none;
@@ -42,6 +49,8 @@
   .task-footer {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    height: 30px;
   }
 
   &--selected {
@@ -49,6 +58,11 @@
     margin-top: 20px;
     box-shadow: 0 1px 10px 1px #b8b2b28a;
     min-height: 135px;
+    .task-content {
+      height: 130px;
+      overflow: hidden;
+      
+    }
   }
 }
 

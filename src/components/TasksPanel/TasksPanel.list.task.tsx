@@ -59,43 +59,46 @@ const TasksPanelListTask: React.FC<TasksPanelListTaskProps> = observer(({ task }
                 <input
                     className="task-title"
                     placeholder="Новая задача"
+                    autoComplete="off"
                     onKeyUp={handleKeyboardKey}
                     autoFocus
                     {...register('title', { onBlur: submit })}
                 />
             </div>
-            <div className="task-body">
-                <textarea name="" id="" placeholder="Заметка" />
-            </div>
-            <div className="task-footer">
-                <div>
-                    <Controller
-                        name={'list_id'}
-                        control={control}
-                        render={({ field }) => {
-                            submit();
-                            return (
-                                <Select {...field} dropdownMatchSelectWidth={false} removeIcon bordered={false}>
-                                    {store.listsStore.lists.map(list => (
-                                        <Select.Option key={list.id} value={list.id}>
-                                            {list.name}
-                                        </Select.Option>
-                                    ))}
-                                </Select>
-                            );
-                        }}
-                    />
+            <div className="task-content">
+                <div className="task-body">
+                    <textarea name="" id="" placeholder="Заметка" />
                 </div>
-                <div>
-                    <Controller
-                        name={'date'}
-                        control={control}
-                        render={({ field }) => {
-                            submit();
-                            return <DatePicker onChange={field.onChange} value={field.value} />;
-                        }}
-                    />
-                    <Button onClick={task.remove} type={'text'} icon={<DeleteOutlined />} />
+                <div className="task-footer">
+                    <div>
+                        <Controller
+                            name={'list_id'}
+                            control={control}
+                            render={({ field }) => {
+                                submit();
+                                return (
+                                    <Select {...field} dropdownMatchSelectWidth={false} removeIcon bordered={false}>
+                                        {store.listsStore.lists.map(list => (
+                                            <Select.Option key={list.id} value={list.id}>
+                                                {list.name}
+                                            </Select.Option>
+                                        ))}
+                                    </Select>
+                                );
+                            }}
+                        />
+                    </div>
+                    <div>
+                        <Controller
+                            name={'date'}
+                            control={control}
+                            render={({ field }) => {
+                                submit();
+                                return <DatePicker onChange={field.onChange} value={field.value} />;
+                            }}
+                        />
+                        <Button onClick={task.remove} type={'text'} icon={<DeleteOutlined />} />
+                    </div>
                 </div>
             </div>
         </div>

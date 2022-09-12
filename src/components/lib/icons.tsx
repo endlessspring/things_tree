@@ -1,5 +1,6 @@
 import { IconsEnum } from "../../types/icons.enum";
 import {
+  CalendarOutlined,
   CodeSandboxOutlined,
   InboxOutlined,
   SnippetsOutlined,
@@ -12,4 +13,5 @@ export default {
   [IconsEnum.STAR]: <StarOutlined />,
   [IconsEnum.BOX]: <CodeSandboxOutlined />,
   [IconsEnum.SNIPPET]: <SnippetsOutlined />,
+  [IconsEnum.CALENDAR]: <CalendarOutlined />,
 };
