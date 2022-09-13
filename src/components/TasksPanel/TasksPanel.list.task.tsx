@@ -56,6 +56,7 @@ const TasksPanelListTask: React.FC<TasksPanelListTaskProps> = observer(({ task }
                         />
                     )}
                 />
+                {task.date && <div className="task-header-date">{task.date}</div>}
                 <input
                     className="task-title"
                     placeholder="Новая задача"
@@ -105,4 +106,3 @@ const TasksPanelListTask: React.FC<TasksPanelListTaskProps> = observer(({ task }
     );
 });
 export default TasksPanelListTask;
-
