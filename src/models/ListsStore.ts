@@ -1,7 +1,7 @@
 import { DEFAULT_DATE_FORMAT } from './../utils/index';
 import moment from 'moment';
 import { isLoading } from './shared/isLoading';
-import { cast, getRoot, Instance, types } from 'mobx-state-tree';
+import { cast, getRoot, Instance, onPatch, types } from 'mobx-state-tree';
 import { IconsEnum } from '../types/icons.enum';
 import { DefaultListsEnum } from '../types/defaultLists.enum';
 import { TaskModelType } from './TasksStore';
@@ -120,6 +120,11 @@ export const ListsStore = types
             void setSelected(1);
         }
 
+        onPatch(self, patch => {
+            if (patch.path === '/selected_list') {
+                getRoot<RootStoreInstance>(self).tasksStore.setSelected(null);
+            }
+        });
+
         return { addList, setSelected, afterCreate };
     });
-
