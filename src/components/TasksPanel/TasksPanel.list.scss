@@ -2,4 +2,18 @@
   max-height: 90%;
   padding: 10px;
   overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 13px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #737373;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+  }
 }
