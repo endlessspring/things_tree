@@ -7,11 +7,17 @@
   align-items: center;
   padding: 0 10px;
   flex-direction: row;
+  overflow: hidden;
 
   .item-icon {
   }
 
   .item-name {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 140px;
   }
 
   &--selected {
