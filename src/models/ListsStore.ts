@@ -1,11 +1,12 @@
 import { DEFAULT_DATE_FORMAT } from './../utils/index';
 import moment from 'moment';
 import { isLoading } from './shared/isLoading';
-import { cast, getRoot, Instance, onPatch, types } from 'mobx-state-tree';
+import { cast, getRoot, Instance, onPatch, types, getSnapshot, SnapshotOrInstance } from 'mobx-state-tree';
 import { IconsEnum } from '../types/icons.enum';
 import { DefaultListsEnum } from '../types/defaultLists.enum';
 import { TaskModelType } from './TasksStore';
 import { RootStoreInstance } from './RootStore';
+import { remove } from 'mobx';
 
 export type ListModelType = Instance<typeof List>;
 
@@ -56,12 +57,16 @@ export const List = types
         };
         const setName = (name: string) => (self.name = name);
 
-        return { setName, addTask };
+        const remove = () => {
+            getRoot<RootStoreInstance>(self).listsStore.removeList(self as Instance<typeof List>);
+        };
+
+        return { setName, addTask, remove };
     });
 
 export const ListsStore = types
     .model({
-        selected_list: types.maybeNull(types.reference(List)),
+        selected_list: types.maybeNull(types.safeReference(List)),
         lists: types.optional(types.array(List), []),
         is_loading: isLoading,
     })
@@ -86,6 +91,10 @@ export const ListsStore = types
             if (list) {
                 self.selected_list = list;
             }
+        };
+
+        const removeList = (list: Instance<typeof List>) => {
+            self.lists.remove(list);
         };
 
         function afterCreate() {
@@ -124,7 +133,11 @@ export const ListsStore = types
             if (patch.path === '/selected_list') {
                 getRoot<RootStoreInstance>(self).tasksStore.setSelected(null);
             }
+            if (patch.op == 'remove' && patch.path.includes('/lists')) {
+                setSelected(DefaultListsEnum.INBOX);
+            }
         });
 
-        return { addList, setSelected, afterCreate };
+        return { addList, setSelected, afterCreate, removeList };
     });
+
