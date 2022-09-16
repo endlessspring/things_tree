@@ -7,7 +7,7 @@ import { observer } from 'mobx-react-lite';
 import React from 'react';
 
 import { Progress, Space } from 'antd';
-import icons from '../lib/icons';
+import icons from '../lib/Icons';
 
 type Props = {
     name: string;
