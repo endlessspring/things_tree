@@ -2,7 +2,7 @@ import React from "react";
 import Sidebar from "./components/Sidebar";
 // @ts-ignore
 import TasksPanel from "./components/TasksPanel";
-import "./App.css";
+import "./App.scss";
 import "antd/dist/antd.css";
 import { Layout } from "antd";
 

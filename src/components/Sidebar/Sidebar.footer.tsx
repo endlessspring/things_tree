@@ -4,6 +4,8 @@ import { useContext } from "react";
 import { SidebarContext } from "./Sidebar";
 
 import "./sidebar.footer.scss";
+import { PlusOutlined } from "@ant-design/icons";
+import { Space } from "antd";
 
 export const SidebarFooter: React.FC = observer(() => {
   const { onListAdd } = useContext(SidebarContext);
@@ -11,7 +13,10 @@ export const SidebarFooter: React.FC = observer(() => {
   return (
     <div className="tt-sidebar-footer">
       <button className="footer-button" onClick={onListAdd}>
-        Add List
+        <Space align={"center"}>
+          <PlusOutlined />
+          Add List
+        </Space>
       </button>
     </div>
   );

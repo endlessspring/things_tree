@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #737373;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+  }
+}
+
+html,
+body,
+.App,
+#root {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  font-family: Roboto,-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif;
+  background: white;
+  min-height: 500px;
+  overflow: hidden;
+}
+.App {
+  display: flex;
+  overflow: hidden;
+}
