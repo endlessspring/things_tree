@@ -13,7 +13,8 @@ export default observer(() => {
   return (
     <Sidebar
       selected_list={listsStore.selected_list}
-      lists={listsStore.lists}
+      system_lists={listsStore.system_lists}
+      custom_lists={listsStore.custom_lists}
       onListClick={handleListClick}
       onListAdd={handleListAdding}
     />

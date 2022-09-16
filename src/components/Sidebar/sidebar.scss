@@ -7,4 +7,15 @@
   justify-content: space-between;
   -webkit-user-select: none;
   user-select: none;
+  padding: 40px 0 0 0 ;
+}
+.tt-sidebar-lists {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 0 5px 0 0;
+  .list-system {
+    overflow: hidden;
+    min-height: 142px;
+  }
 }

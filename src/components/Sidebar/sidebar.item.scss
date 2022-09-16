@@ -1,5 +1,5 @@
 .tt-sidebar-item {
-  height: 30px;
+  min-height: 30px;
   width: 100%;
   cursor: pointer;
   border-radius: 5px;
@@ -17,7 +17,7 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    width: 140px;
+    width: 120px;
   }
 
   &--selected {

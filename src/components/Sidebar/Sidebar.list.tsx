@@ -1,13 +1,21 @@
-import { observer } from 'mobx-react-lite';
-import React, { useCallback, useContext } from 'react';
-import { IconsEnum } from '../../types/icons.enum';
-import { SidebarContext } from './Sidebar';
-import { SidebarItem } from './Sidebar.item';
+import {observer} from "mobx-react-lite";
+import React, {useCallback, useContext} from "react";
+import {IconsEnum} from "../../types/icons.enum";
+import {SidebarContext} from "./Sidebar";
+import {SidebarItem} from "./Sidebar.item";
 
-import './sidebar.list.scss';
+import "./sidebar.list.scss";
+import {ListModelType} from "../../models/ListsStore";
+import {List} from "antd";
+import classnames from "classnames";
 
-export const SidebarList: React.FC = observer(() => {
-    const { selected_list, lists, onListClick } = useContext(SidebarContext);
+type Props = {
+    lists: ListModelType[];
+    className?: string;
+};
+
+export const SidebarList: React.FC<Props> = observer(({lists, className}) => {
+    const {selected_list, onListClick} = useContext(SidebarContext);
 
     const handleListClick = useCallback(
         (id: number) => () => {
@@ -17,18 +25,21 @@ export const SidebarList: React.FC = observer(() => {
     );
 
     return (
-        <div className="tt-sidebar-list">
-            {lists.map(item => (
-                <SidebarItem
-                    key={item.id}
-                    icon={item.icon as IconsEnum}
-                    name={item.name}
-                    onClick={handleListClick(item.id)}
-                    selected={selected_list?.id === item.id}
-                    progress={item.progress || 0}
-                />
-            ))}
+        <div
+            className={classnames({
+                "tt-sidebar-list": true,
+                [className as string]: !!className,
+            })}
+        >
+
+            {lists.map(item => <SidebarItem
+                key={item.id}
+                icon={item.icon as IconsEnum}
+                name={item.name}
+                onClick={handleListClick(item.id)}
+                selected={selected_list?.id === item.id}
+                progress={item.progress || 0}
+            />)}
         </div>
     );
 });
-
