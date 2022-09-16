@@ -1,5 +1,5 @@
 import { Button } from 'antd';
-import icons from '../icons';
+import icons from '../Icons';
 import { IconsEnum } from '../../../types/icons.enum';
 import moment from 'moment/moment';
 import React, { useCallback } from 'react';

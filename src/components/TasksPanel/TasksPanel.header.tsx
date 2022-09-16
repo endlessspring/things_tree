@@ -4,7 +4,7 @@ import { TasksPanelContext } from './TasksPanel';
 import { useForm } from 'react-hook-form';
 
 import './TasksPanel.header.scss';
-import icons from '../lib/icons';
+import icons from '../lib/Icons';
 import { IconsEnum } from '../../types/icons.enum';
 import { Button, Dropdown, Menu, Select, Space } from 'antd';
 import { EllipsisOutlined } from '@ant-design/icons';
@@ -43,22 +43,23 @@ export const TasksPanelHeader: React.FC<Props> = observer(() => {
                             })}
                         />
 
-                        <Dropdown
-                            overlay={
-                                <Menu
-                                    items={[
-                                        {
-                                            key: 1,
-                                            label: 'Удалить',
-                                            onClick: () => selected_list?.remove(),
-                                            disabled: selected_list?.is_system,
-                                        },
-                                    ]}
-                                />
-                            }
-                        >
-                            <Button icon={<EllipsisOutlined />} />  
-                        </Dropdown>
+                        {!selected_list?.is_system && (
+                            <Dropdown
+                                overlay={
+                                    <Menu
+                                        items={[
+                                            {
+                                                key: 1,
+                                                label: 'Удалить',
+                                                onClick: () => selected_list?.remove(),
+                                            },
+                                        ]}
+                                    />
+                                }
+                            >
+                                <Button icon={<EllipsisOutlined />} />
+                            </Dropdown>
+                        )}
                     </Space>
                 </div>
             </form>
