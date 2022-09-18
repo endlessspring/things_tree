@@ -34,7 +34,6 @@ const TasksPanelListTask: React.FC<TasksPanelListTaskProps> = observer(({ task }
 
     return (
         <div
-            onClick={task.select}
             className={classNames({
                 'tt-task_list-task': true,
                 'tt-task_list-task--selected': task.is_selected,
@@ -58,9 +57,10 @@ const TasksPanelListTask: React.FC<TasksPanelListTaskProps> = observer(({ task }
                 />
                 {task.date && <div className="task-header-date">{task.date}</div>}
                 <input
-                    className="task-title"
+                    className={'task-title'}
                     placeholder="Новая задача"
                     autoComplete="off"
+                    onClick={task.select}
                     onKeyUp={handleKeyboardKey}
                     autoFocus
                     {...register('title', { onBlur: submit })}
