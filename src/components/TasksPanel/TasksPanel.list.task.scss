@@ -73,5 +73,18 @@
       
     }
   }
+  &--completed {
+    margin-bottom: 30px;
+    margin-top: 20px;
+    box-shadow: 0 1px 10px 1px #b8b2b28a;
+    min-height: 135px;
+    
+    text-decoration: line-through;
+    .task-content {
+    }
+    * {
+      font-style: normal;
+    }
+  }
 }
 
