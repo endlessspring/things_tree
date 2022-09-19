@@ -78,8 +78,11 @@ export const List = types
         self as Instance<typeof List>
       );
     };
+    const duplicate = () => {
+      getRoot<RootStoreInstance>(self).listsStore.addList(self.name);
+    };
 
-    return { setName, addTask, remove };
+    return { setName, addTask, remove, duplicate };
   });
 
 export const ListsStore = types
@@ -104,8 +107,11 @@ export const ListsStore = types
       self.lists = cast(lists);
     };
 
-    const addList = () => {
-      const new_list = List.create({ id: Math.random(), name: "Новый список" });
+    const addList = (name?: string) => {
+      const new_list = List.create({
+        id: Math.random(),
+        name: name || "Новый список",
+      });
       self.lists.push(new_list);
       return new_list;
     };
