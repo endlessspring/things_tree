@@ -25,6 +25,7 @@ export const List = types
     is_system: types.optional(types.boolean, false),
     is_loading: isLoading,
     is_today: types.optional(types.boolean, false),
+    completed: types.optional(types.boolean, false),
     icon: types.maybeNull(
       types.enumeration<IconsEnum>([...Object.values(IconsEnum)])
     ),
@@ -78,11 +79,20 @@ export const List = types
         self as Instance<typeof List>
       );
     };
+
     const duplicate = () => {
       getRoot<RootStoreInstance>(self).listsStore.addList(self.name);
     };
 
-    return { setName, addTask, remove, duplicate };
+    const complete = () => {
+      self.completed = true;
+    };
+
+    const uncomplete = () => {
+      self.completed = false;
+    };
+
+    return { setName, addTask, remove, duplicate, complete, uncomplete };
   });
 
 export const ListsStore = types
