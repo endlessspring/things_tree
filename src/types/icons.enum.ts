@@ -4,4 +4,5 @@ export enum IconsEnum {
   BOX = "box",
   SNIPPET = "snippet",
   CALENDAR = "calendar",
+  SETTINGS = 'settings'
 }
