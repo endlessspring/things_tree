@@ -13,6 +13,7 @@ export type SidebarProps = {
   custom_lists: ListModelType[];
   onListClick: (id: number) => void;
   onListAdd: () => void;
+  onSettingsOpen: () => void;
 };
 
 export const SidebarContext = createContext<SidebarProps>({
@@ -21,6 +22,7 @@ export const SidebarContext = createContext<SidebarProps>({
   custom_lists: [],
   onListClick: () => {},
   onListAdd: () => {},
+  onSettingsOpen: () => {},
 });
 
 export const Sidebar: React.FC<SidebarProps> = observer((props) => {

@@ -10,7 +10,7 @@ import icons from "../lib/Icons";
 import { IconsEnum } from "../../types/icons.enum";
 
 export const SidebarFooter: React.FC = observer(() => {
-  const { onListAdd } = useContext(SidebarContext);
+  const { onListAdd, onSettingsOpen } = useContext(SidebarContext);
 
   return (
     <div className="tt-sidebar-footer">
@@ -20,7 +20,7 @@ export const SidebarFooter: React.FC = observer(() => {
           Add List
         </Space>
       </button>
-      <button>{icons[IconsEnum.SETTINGS]}</button>
+      <button onClick={onSettingsOpen}>{icons[IconsEnum.SETTINGS]}</button>
     </div>
   );
 });
