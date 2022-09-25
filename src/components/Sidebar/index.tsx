@@ -4,11 +4,13 @@ import { useStore } from "../../hooks/useStore";
 import React from "react";
 
 export default observer(() => {
-  let { listsStore } = useStore();
+  let { listsStore, settingsStore } = useStore();
 
   const handleListAdding = () => listsStore.addList();
 
   const handleListClick = (id: number) => listsStore.setSelected(id);
+
+  const handleSettingsClick = () => settingsStore.setVisibility(true)
 
   return (
     <Sidebar
@@ -17,6 +19,7 @@ export default observer(() => {
       custom_lists={listsStore.custom_lists}
       onListClick={handleListClick}
       onListAdd={handleListAdding}
+      onSettingsOpen={handleSettingsClick}
     />
   );
 });
