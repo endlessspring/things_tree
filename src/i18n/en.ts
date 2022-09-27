@@ -4,6 +4,8 @@ export default {
     "common.anytime": 'Anytime',
     "common.sometime": 'Sometime',
     "common.settings": 'Settings',
+    "common.deleteList": 'Delete list',
+    "common.duplicateList": 'Duplicate list',
 
     "sidebar.addList": 'Add list',
 
