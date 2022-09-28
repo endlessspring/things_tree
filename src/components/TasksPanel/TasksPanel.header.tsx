@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
 import { observer } from "mobx-react-lite";
-import { TasksPanelContext } from "./TasksPanel";
+import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
+
+import { TasksPanelContext } from "./TasksPanel";
 
 import "./TasksPanel.header.scss";
 import icons from "../lib/Icons";
@@ -14,6 +16,8 @@ type Props = {};
 
 export const TasksPanelHeader: React.FC<Props> = observer(() => {
   const { selected_list } = useContext(TasksPanelContext);
+  
+  const { t } = useTranslation()
 
   const { register, handleSubmit } = useForm({
     mode: "all",
@@ -54,7 +58,7 @@ export const TasksPanelHeader: React.FC<Props> = observer(() => {
                     items={[
                       {
                         key: 1,
-                        label: "Удалить проект",
+                        label: t("common.deleteList"),
                         onClick: () => selected_list?.remove(),
                       },
                       {
@@ -69,7 +73,7 @@ export const TasksPanelHeader: React.FC<Props> = observer(() => {
                       },
                       {
                         key: 4,
-                        label: "Дублировать проект",
+                        label: t('"common.dupliacateList"'),
                         onClick: () => selected_list?.duplicate(),
                       },
                     ]}
