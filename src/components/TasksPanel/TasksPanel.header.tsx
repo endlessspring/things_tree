@@ -68,12 +68,12 @@ export const TasksPanelHeader: React.FC<Props> = observer(() => {
                       },
                       {
                         key: 3,
-                        label: "Добавить теги",
+                        label: t("common.addTags"),
                         onClick: () => console.log('tags'),
                       },
                       {
                         key: 4,
-                        label: t('"common.dupliacateList"'),
+                        label: t("common.dupliacateList"),
                         onClick: () => selected_list?.duplicate(),
                       },
                     ]}
