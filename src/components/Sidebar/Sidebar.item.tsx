@@ -6,7 +6,7 @@ import "./sidebar.item.scss";
 import { observer } from "mobx-react-lite";
 import React from "react";
 
-import { Progress, Space } from "antd";
+import { Space } from "antd";
 import icons from "../lib/Icons";
 import TTProgress from "../lib/Progress";
 
@@ -38,5 +38,3 @@ export const SidebarItem: React.FC<Props> = observer(
     );
   }
 );
-// TODO написать свитчер для иконок
-

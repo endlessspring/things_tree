@@ -22,4 +22,4 @@ const TTProgress: React.FC<Props> = ({ progress, size }) => {
   );
 };
 
-export default TTProgress
+export default TTProgress;

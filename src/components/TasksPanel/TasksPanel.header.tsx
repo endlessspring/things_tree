@@ -8,7 +8,7 @@ import { TasksPanelContext } from "./TasksPanel";
 import "./TasksPanel.header.scss";
 import icons from "../lib/Icons";
 import { IconsEnum } from "../../types/icons.enum";
-import { Button, Dropdown, Menu, Select, Space } from "antd";
+import { Button, Dropdown, Menu, Space } from "antd";
 import { EllipsisOutlined } from "@ant-design/icons";
 import TTProgress from "../lib/Progress";
 
@@ -16,8 +16,8 @@ type Props = {};
 
 export const TasksPanelHeader: React.FC<Props> = observer(() => {
   const { selected_list } = useContext(TasksPanelContext);
-  
-  const { t } = useTranslation()
+
+  const { t } = useTranslation();
 
   const { register, handleSubmit } = useForm({
     mode: "all",
@@ -69,7 +69,7 @@ export const TasksPanelHeader: React.FC<Props> = observer(() => {
                       {
                         key: 3,
                         label: t("common.addTags"),
-                        onClick: () => console.log('tags'),
+                        onClick: () => console.log("tags"),
                       },
                       {
                         key: 4,

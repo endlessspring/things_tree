@@ -7,12 +7,10 @@ import "antd/dist/antd.css";
 import { Layout } from "antd";
 import Settings from "./components/Settings";
 import { createI18n } from "./i18n";
-import { useStore } from "./hooks/useStore";
 
 createI18n();
 
 function App() {
-
   return (
     <div className="App">
       <Layout>

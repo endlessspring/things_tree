@@ -5,7 +5,6 @@ import { SidebarList } from "./Sidebar.list";
 
 import "./sidebar.scss";
 import { observer } from "mobx-react-lite";
-import { List } from "antd";
 
 export type SidebarProps = {
   selected_list?: ListModelType | null;
@@ -30,7 +29,7 @@ export const Sidebar: React.FC<SidebarProps> = observer((props) => {
     <SidebarContext.Provider value={props}>
       <div className="tt-sidebar">
         <div className="tt-sidebar-lists">
-          <SidebarList className={'list-system'} lists={props.system_lists} />
+          <SidebarList className={"list-system"} lists={props.system_lists} />
           <SidebarList lists={props.custom_lists} />
         </div>
         <SidebarFooter />

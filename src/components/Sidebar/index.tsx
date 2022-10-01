@@ -10,7 +10,7 @@ export default observer(() => {
 
   const handleListClick = (id: number) => listsStore.setSelected(id);
 
-  const handleSettingsClick = () => settingsStore.setVisibility(true)
+  const handleSettingsClick = () => settingsStore.setVisibility(true);
 
   return (
     <Sidebar
