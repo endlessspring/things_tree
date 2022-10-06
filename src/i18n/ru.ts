@@ -7,9 +7,7 @@ export default {
   "common.deleteList": "Удалить список",
   "common.duplicateList": "Дублировать список",
   "common.addTags": "Добавить теги",
-
   "sidebar.addList": "Добавить список",
-
   "lang.ru": "Русский",
   "lang.en": "Английский",
 };
