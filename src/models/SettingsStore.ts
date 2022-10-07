@@ -31,5 +31,5 @@ export const SettingsStore = types
             self.visible = value;
         };
 
-        return {setLang, setVisibility};
+        return {setLang, setTheme, setVisibility};
     });
