@@ -1,19 +1,22 @@
-import React, { useCallback } from "react";
-import { Button, Modal, Switch, Select } from "antd";
+import React from "react";
+import { Modal, Select } from "antd";
 import { useStore } from "../../hooks/useStore";
 import { LANG_ENUM } from "../../types/lang.enum";
 import { observer } from "mobx-react-lite";
 import { useTranslation } from "react-i18next";
+import { THEMES_ENUM } from "../../types/themes.enum";
 
 export default observer(() => {
   const { t } = useTranslation();
   const {
-    settingsStore: { setLang, visible, setVisibility, lang },
+    settingsStore: { setLang, visible, setVisibility, lang, theme, setTheme }
   } = useStore();
 
   const handleCancel = () => setVisibility(false);
 
   const handleLangChange = (lang: LANG_ENUM) => setLang(lang);
+
+  const handleThemeChange = (theme: THEMES_ENUM) => setTheme(theme);
 
   return (
     <Modal
@@ -28,6 +31,13 @@ export default observer(() => {
           <Select.Option value={lang}> {t(`lang.${lang}`)} </Select.Option>
         ))}
       </Select>
+
+      <Select value={theme} dropdownMatchSelectWidth onSelect={handleThemeChange}>
+        {Object.values(THEMES_ENUM).map((theme) => (
+          <Select.Option value={theme}> {t(`theme.${theme}`)} </Select.Option>
+        ))}
+      </Select>
+
     </Modal>
   );
 });
