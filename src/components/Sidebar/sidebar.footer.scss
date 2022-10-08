@@ -1,8 +1,9 @@
 .tt-sidebar-footer {
   width: 100%;
   height: 30px;
-  background: lightgray;
   display: flex;
+  background: transparent;
+  border-top: 1px solid lightgray;
   button {
     height: 100%;
     border: 0px;

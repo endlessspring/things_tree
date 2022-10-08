@@ -6,6 +6,8 @@ import TasksPanelList from "./TasksPanel.list";
 
 import "./TasksPanel.scss";
 
+import { PlusOutlined } from "@ant-design/icons";
+
 export type TasksPanelProps = {
   selected_list?: ListModelType | null;
 };
@@ -21,10 +23,10 @@ export const TasksPanel: React.FC<TasksPanelProps> = observer((props) => {
         <TasksPanelHeader />
         <TasksPanelList />
         <button
-          className="tt-add-button"
+          className={"tt-add-button"}
           onClick={props.selected_list?.addTask}
         >
-          +
+          <PlusOutlined/>
         </button>
       </div>
     </TasksPanelContext.Provider>
