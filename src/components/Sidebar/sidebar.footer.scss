@@ -14,5 +14,10 @@
   }
   .footer-add-button {
     width: 80%;
+    white-space: nowrap;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 12px;
   }
 }

@@ -12,4 +12,7 @@ export default {
 
   "lang.ru": "Russian",
   "lang.en": "English",
+  
+  "theme.dark": "Dark",
+  "theme.light": "Light",
 };
