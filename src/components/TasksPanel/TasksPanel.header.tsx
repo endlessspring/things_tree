@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { observer } from "mobx-react-lite";
 import { useTranslation } from "react-i18next";
-import { useForm } from "react-hook-form";
+import { useForm, FormProvider} from "react-hook-form";
 
 import { TasksPanelContext } from "./TasksPanel";
 
@@ -19,10 +19,14 @@ export const TasksPanelHeader: React.FC<Props> = observer(() => {
 
   const { t } = useTranslation();
 
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit, setValue } = useForm({
     mode: "all",
-    defaultValues: { name: "", description: "" },
-  });
+    defaultValues: { name: selected_list?.name || '', description: "",  }
+   });
+
+  useEffect(() => { 
+    setValue('name', selected_list?.name || '') 
+  }, [selected_list?.id])
 
   const handleChange = handleSubmit(
     (data) => {
@@ -43,7 +47,6 @@ export const TasksPanelHeader: React.FC<Props> = observer(() => {
             )}
             <input
               className={"header-title-input"}
-              value={selected_list?.name}
               {...register("name", {
                 minLength: 3,
                 disabled: selected_list?.is_system,
