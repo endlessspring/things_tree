@@ -14,10 +14,6 @@ export default observer(() => {
 
   const handleCancel = () => setVisibility(false);
 
-  const handleLangChange = (lang: LANG_ENUM) => setLang(lang);
-
-  const handleThemeChange = (theme: THEMES_ENUM) => setTheme(theme);
-
   return (
     <Modal
       centered
@@ -26,13 +22,13 @@ export default observer(() => {
       onCancel={handleCancel}
       footer={null}
     >
-      <Select value={lang} dropdownMatchSelectWidth onSelect={handleLangChange}>
+      <Select value={lang} dropdownMatchSelectWidth onSelect={setLang}>
         {Object.values(LANG_ENUM).map((lang) => (
           <Select.Option value={lang}> {t(`lang.${lang}`)} </Select.Option>
         ))}
       </Select>
 
-      <Select value={theme} dropdownMatchSelectWidth onSelect={handleThemeChange}>
+      <Select value={theme} dropdownMatchSelectWidth onSelect={setTheme}>
         {Object.values(THEMES_ENUM).map((theme) => (
           <Select.Option value={theme}> {t(`theme.${theme}`)} </Select.Option>
         ))}
