@@ -66,7 +66,7 @@ export const TasksPanelHeader: React.FC<Props> = observer(() => {
                       },
                       {
                         key: 2,
-                        label: "Завершить проект",
+                        label: t('common.completeProject'),
                         onClick: () => selected_list?.remove(),
                       },
                       {
@@ -76,7 +76,7 @@ export const TasksPanelHeader: React.FC<Props> = observer(() => {
                       },
                       {
                         key: 4,
-                        label: t("common.dupliacateList"),
+                        label: t("common.duplicateList"),
                         onClick: () => selected_list?.duplicate(),
                       },
                     ]}

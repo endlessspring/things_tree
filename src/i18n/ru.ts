@@ -6,6 +6,7 @@ export default {
   "common.sometime": "Когда-нибудь",
   "common.deleteList": "Удалить список",
   "common.duplicateList": "Дублировать список",
+  "common.completeProject": "Завершить проект",
   "common.addTags": "Добавить теги",
   
   "sidebar.addList": "Добавить список",

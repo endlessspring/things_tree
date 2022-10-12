@@ -6,6 +6,7 @@ export default {
   "common.settings": "Settings",
   "common.deleteList": "Delete list",
   "common.duplicateList": "Duplicate list",
+  "common.completeProject": "Complete project",
   "common.addTags": "Add tags",
 
   "sidebar.addList": "Add list",
