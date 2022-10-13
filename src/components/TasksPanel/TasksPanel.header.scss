@@ -1,4 +1,10 @@
 .tt-tasks_panel-header {
+  .tt-tasks_panel-header-title {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+  }
+
   .header-title-input {
     background: unset;
     border: none;

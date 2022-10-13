@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { observer } from "mobx-react-lite";
 import { useTranslation } from "react-i18next";
-import { useForm, FormProvider} from "react-hook-form";
+import { useForm} from "react-hook-form";
 
 import { TasksPanelContext } from "./TasksPanel";
 
@@ -40,7 +40,7 @@ export const TasksPanelHeader: React.FC<Props> = observer(() => {
   return (
     <div className={"tt-tasks_panel-header"}>
       <form onChange={handleChange}>
-        <div style={{ fontSize: 20, display: "flex", alignItems: "center" }}>
+        <div className={"tt-tasks_panel-header-title"}>
           <Space align={"center"}>
             {icons[selected_list?.icon as IconsEnum] || (
               <TTProgress progress={selected_list?.progress} size={30} />
