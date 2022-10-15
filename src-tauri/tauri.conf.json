@@ -60,7 +60,6 @@
         "resizable": true,
         "title": "Things Tree",
         "width": 800,
-        "minWidth": 800,
         "theme": "Light"
       }
     ]
