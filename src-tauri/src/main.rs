@@ -1,5 +1,5 @@
 use cocoa::appkit::{NSWindow, NSWindowStyleMask};
-use tauri::{Runtime, Window,Manager};
+use tauri::{Runtime, Window,Manager, Size, LogicalSize};
 
 pub trait WindowExt {
   #[cfg(target_os = "macos")]
@@ -40,6 +40,7 @@ fn main() {
       .setup(|app| {
         let win = app.get_window("main").unwrap();
         win.set_transparent_titlebar(true);
+        win.set_min_size(Option::Some(Size::Logical(LogicalSize { width: 800.0, height: 600.0 })));
         Ok(())
       })
       .run(tauri::generate_context!())
