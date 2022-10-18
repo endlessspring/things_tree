@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Sidebar from "./components/Sidebar";
 // @ts-ignore
 import TasksPanel from "./components/TasksPanel";
@@ -7,10 +7,12 @@ import "antd/dist/antd.css";
 import { Layout } from "antd";
 import Settings from "./components/Settings";
 import { createI18n } from "./i18n";
+import { appWindow, LogicalSize } from '@tauri-apps/api/window';
 
 createI18n();
 
 function App() {
+
   return (
     <div className="App">
       <Layout>
